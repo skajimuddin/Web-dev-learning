@@ -1,0 +1,5 @@
+{
+  "singleAttributePerLine": false,
+  "jsxBracketSameLine": true,
+  "semi": false
+}

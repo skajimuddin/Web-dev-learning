@@ -18,6 +18,12 @@ mongosh
 
 ![](assets/MongoDB_JSON_vs_Bson.png)
 
+Clear Terminal
+
+```sh
+cls
+```
+
 Show Dbs
 ```sh
 test> show dbs
@@ -80,25 +86,25 @@ db.about.findOne({name: "Azim", city: "Cuttack"}); // Find one
 
 ### Comparison
 
-| Name | Description |
-|------|-------------|
-| $eq  | Matches values that are equal to a specified value. |
-| $gt  | Matches values that are greater than a specified value. |
+| Name | Description                                                         |
+| ---- | ------------------------------------------------------------------- |
+| $eq  | Matches values that are equal to a specified value.                 |
+| $gt  | Matches values that are greater than a specified value.             |
 | $gte | Matches values that are greater than or equal to a specified value. |
-| $in  | Matches any of the values specified in an array. |
-| $lt  | Matches values that are less than a specified value. |
-| $lte | Matches values that are less than or equal to a specified value. |
-| $ne  | Matches 011 values that are not equal to O specified value. |
-| $nin | Matches none of the values specified in an array. |
+| $in  | Matches any of the values specified in an array.                    |
+| $lt  | Matches values that are less than a specified value.                |
+| $lte | Matches values that are less than or equal to a specified value.    |
+| $ne  | Matches 011 values that are not equal to O specified value.         |
+| $nin | Matches none of the values specified in an array.                   |
 
 ### Logical
 
-| Name | Description |
-|------|-------------|
+| Name | Description                                                                                             |
+| ---- | ------------------------------------------------------------------------------------------------------- |
 | $and | Joins query clauses with a logical AND returns all documents that match the conditions of both clauses. |
-| $not | Inverts the effect of a query expression and returns documents that do not match th query expression.|
-| $nor | Joins query clauses with a logical NOR returns all documents that fail to match. |
-| $or | Joins query clauses with a logical OR returns all documents that match. |
+| $not | Inverts the effect of a query expression and returns documents that do not match th query expression.   |
+| $nor | Joins query clauses with a logical NOR returns all documents that fail to match.                        |
+| $or  | Joins query clauses with a logical OR returns all documents that match.                                 |
 
 Q. Find students where marks > 75
 
@@ -136,10 +142,10 @@ To update one
 db.users.updateOne({name: "Alam"}, {$set: {mark: 99}})
 ```
 
-| Name | Description |
-|------|-------------|
+| Name                       | Description                                                                                                                      |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | db.collection.updateMany() | Update all documents that match a specified filter. Replaces at most a single document that match a specified filter even though |
-| db.collection.replaceOne() | multiple documents may match the specified filter. |
+| db.collection.replaceOne() | multiple documents may match the specified filter.                                                                               |
 
 To replace many
 
@@ -185,4 +191,25 @@ To delete a database
 
 ```sh
 db.dropDatabase();
+```
+
+<br/>
+<br/>
+<h1 align="center">Mongosh</h1>
+<br/>
+
+> Docs >> https://mongoosejs.com/
+
+Connecting to MongoDB
+
+```js
+const mongoose = require('mongoose');
+
+main()
+    .then(() => console.log('Connected to MongoDB...'))
+    .catch(err => console.log(err));
+
+async function main() {
+    await mongoose.connect('mongodb://127.0.0.1:27017/SKAZIM');
+}
 ```

@@ -8,8 +8,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "mongoose": "^8.5.3"
-  }
+    "mongoose": "^8.7.1"
+  },
+  "description": ""
 }

@@ -5,9 +5,9 @@ arr.forEach((el) => {
     console.log(el); // Print all indivusally
 });
 
-// map
+// map 
 let newArr = arr.map((el) => {
-    return el * 2;
+    return el * 2; 
 });
 console.log(newArr); // >> [2, 4, 6, 8, 10, 12, 14, 16, 18, 0]
 
