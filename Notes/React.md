@@ -1,6 +1,6 @@
-<br/>
+<h1 align="center">React</h1>
 
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe3ZHRm4yFPUXCcdnWUNBXPJEhsImIwthTQSF4masCFQnQR4meEyyAL0eMqLossUUl403Fk&usqp=CAsU)
+![](https://media.licdn.com/dms/image/C4E12AQEBVCR2SpRr9g/article-cover_image-shrink_720_1280/0/1625909824541?e=2147483647&v=beta&t=Y_zSoI8cPUR3wQvPyYK15PLWpQJJ0si6OvsuXFnIC18)
 
 > I thing when we are changing values of an object or array the value is changes not menory address. so we have to user ... map like this ways
 
@@ -173,8 +173,37 @@ function App() {
 }
 ```
 
+## Dyanamic form data
+```jsx
+function handleChange(event) {
+export default function Main() {
+    const [meme, setMeme] = useState({
+        text: "One does not simply",
+    })
 
-## Forms in React (full controle)
+    function handleChange(event) {
+        const { value } = event.currentTarget
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            text: value
+        }))
+    }
+
+    return (
+        <main>
+            <input
+                type="text"
+                placeholder="One does not simply"
+                name="topText"
+                onChange={handleChange}
+            />
+        </main>
+    )
+}
+```
+
+
+## Forms in React (full controle) 
 
 > When passing Array or Object into a new variable in js the reference is of original is send so we have to use spred opreter 
 
@@ -193,7 +222,7 @@ Example:
 ```
 > In this example name is a state variable
 
-## Handling Multiple Inputs (full controle)
+## Handling Multiple Inputs (full controle) 
 
 ```jsx
 function App() {
@@ -254,7 +283,7 @@ function App() {
 
   useEffect(() => {
     getRandomNum();
-  }, []); // This Empty [] array to make the useEffect render only first time
+  }, []); // This Empty [] array to make the useEffect render only first time or 'mount'
 
   function getRandomNum() {
     setCounter(Math.floor(Math.random() * 90) + 10);
@@ -267,3 +296,61 @@ function App() {
   );
 }
 ```
+
+# Scrimba notes
+
+This is an important part of useEffect. Sometimes we need to stop useEffect.
+
+```jsx
+import React from "react"
+
+export default function WindowTracker() {
+    const [windowWidth, setWindowWidth] = React.useState(window.innerWidth)
+    
+    React.useEffect(() => {
+        function watchWindowWidth () {
+            console.log("Resized")
+            setWindowWidth(window.innerWidth)
+        }
+        window.addEventListener("resize", watchWindowWidth)
+        return function() {
+            console.log("Cleaning up...")
+            window.removeEventListener("resize", watchWindowWidth)
+        }
+    }, [])
+    
+    return (
+        <h1>Window width: {windowWidth}</h1>
+    )
+}
+```
+
+## useRef( )
+
+```jsx
+function App() {
+  // Create a ref to store input element reference
+  const inputRef = useRef(null)
+
+  // Function to focus the input
+  const handleFocus = () => {
+    inputRef.current.focus()
+  }
+
+  return (
+    <div>
+      <h1>useRef Example</h1>
+      <input 
+        ref={inputRef} 
+        type="text" 
+        placeholder="Type something..."
+      />
+      <button onClick={handleFocus}>
+        Focus Input
+      </button>
+    </div>
+  )
+}
+```
+
+Note: in most use case dont use DOM insted use useref
