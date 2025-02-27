@@ -198,9 +198,14 @@ db.dropDatabase();
 <h1 align="center">Mongosh</h1>
 <br/>
 
+A library that creates a connection between MongoDB & Node.js JavaScript Runtime
+Environment
+
+It is an ODM (Object Data Modeling) Library.
+
 > Docs >> https://mongoosejs.com/
 
-Connecting to MongoDB
+## Connecting to MongoDB
 
 ```js
 const mongoose = require('mongoose');
@@ -213,3 +218,8 @@ async function main() {
     await mongoose.connect('mongodb://127.0.0.1:27017/SKAZIM');
 }
 ```
+
+## Schema
+
+Schema defines the shape of the documents within that collection.
+
